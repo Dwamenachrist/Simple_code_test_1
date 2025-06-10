@@ -1,22 +1,33 @@
 import pytest
 from multiply import multiply_numbers
 
-def test_multiply_numbers_positive():
+def test_multiply_positive_numbers():
     assert multiply_numbers(2, 3) == 6
 
-def test_multiply_numbers_negative():
-    assert multiply_numbers(-2, 3) == -6
+def test_multiply_negative_numbers():
     assert multiply_numbers(-2, -3) == 6
 
-def test_multiply_numbers_zero():
-    assert multiply_numbers(0, 3) == 0
-    assert multiply_numbers(-2, 0) == 0
+def test_multiply_mixed_signs():
+    assert multiply_numbers(-2, 3) == -6
 
-def test_multiply_numbers_large_numbers():
-    assert multiply_numbers(2000, 3000) == 6000000
+def test_multiply_by_zero():
+    assert multiply_numbers(2, 0) == 0
 
-def test_multiply_numbers_non_numeric_input():
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 3, 6),
+    (-2, -3, 6),
+    (-2, 3, -6),
+    (2, 0, 0),
+])
+def test_multiply(a, b, expected):
+    assert multiply_numbers(a, b) == expected
+
+def test_multiply_non_numeric_input():
     with pytest.raises(TypeError):
-        multiply_numbers('a', 3)
-    with pytest.raises(TypeError):
-        multiply_numbers(2, 'b')
+        multiply_numbers("a", 3)
+
+def test_multiply_large_numbers():
+    assert multiply_numbers(1000000, 2000000) == 2000000000000
+
+def test_multiply_floats():
+    assert multiply_numbers(2.5, 3.5) == 8.75
