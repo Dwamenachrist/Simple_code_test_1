@@ -1,32 +1,30 @@
 import unittest
-from multiply import multiply_numbers
+from multiply import multiply
 
-class TestMultiplyNumbers(unittest.TestCase):
+class TestMultiply(unittest.TestCase):
+    def test_positive_numbers(self):
+        self.assertEqual(multiply(2, 3), 6)
+        self.assertEqual(multiply(4, 5), 20)
 
-    def test_multiply_positive_numbers(self):
-        """Test multiplying two positive numbers."""
-        self.assertEqual(multiply_numbers(3, 4), 12)
+    def test_negative_numbers(self):
+        self.assertEqual(multiply(-2, 3), -6)
+        self.assertEqual(multiply(2, -3), -6)
+        self.assertEqual(multiply(-2, -3), 6)
 
-    def test_multiply_negative_numbers(self):
-        """Test multiplying two negative numbers."""
-        self.assertEqual(multiply_numbers(-3, -4), 12)
+    def test_zero(self):
+        self.assertEqual(multiply(0, 5), 0)
+        self.assertEqual(multiply(5, 0), 0)
+        self.assertEqual(multiply(0, 0), 0)
 
-    def test_multiply_positive_negative(self):
-        """Test multiplying a positive and a negative number."""
-        self.assertEqual(multiply_numbers(3, -4), -12)
+    def test_floats(self):
+        self.assertEqual(multiply(2.5, 4), 10.0)
+        self.assertEqual(multiply(2, 3.5), 7.0)
 
-    def test_multiply_with_zero(self):
-        """Test multiplying by zero."""
-        self.assertEqual(multiply_numbers(0, 5), 0)
-        self.assertEqual(multiply_numbers(5, 0), 0)
-
-    def test_multiply_floats(self):
-        """Test multiplying two float numbers."""
-        self.assertAlmostEqual(multiply_numbers(2.5, 3.2), 8.0)
-
-    def test_multiply_large_numbers(self):
-        """Test multiplying large numbers."""
-        self.assertEqual(multiply_numbers(100000, 200), 20000000)
+    def test_invalid_input(self):
+        with self.assertRaises(TypeError):
+            multiply('a', 3)
+        with self.assertRaises(TypeError):
+            multiply(2, 'b')
 
 if __name__ == '__main__':
     unittest.main()
