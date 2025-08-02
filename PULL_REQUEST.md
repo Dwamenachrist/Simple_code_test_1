@@ -1,23 +1,22 @@
-# Pull Request - unit-tests-20250802_031657
+# Pull Request for Adding Tests
 
-## Summary of Changes:
+## Purpose:
+This pull request adds new tests for the multiplication functionality in the `tests/test_multiply.py` file. These tests are meant to ensure the correctness of the multiply function under various conditions.
 
-This pull request aims to integrate new unit tests for the multiplication functionalities. The focus is primarily on handling edge cases and invalid inputs that will enhance the robustness of the code.
+## Coverage:
+The following components are now tested:
+- Basic multiplication cases
+- Edge cases for zero and negative multipliers
+- Invalid input handling
 
-### Intended Tests:
-- **multiply.py Tests:**
-  - Testing multiplication with zero.
-  - Testing multiplication with negative and positive values.
+## Implementation:
+The tests utilize the `unittest` framework and include several test cases to cover the various scenarios outlined above. Each test checks for both correct outputs and proper error handling.
 
-These tests are necessary to ensure that the software behaves as expected under various scenarios, preventing possible future bugs.
+## Setup:
+To run the tests, ensure you have Python installed along with the `unittest` package. Execute the command:
+```bash
+python -m unittest tests/test_multiply.py
+```
 
-### How to Run the Tests:
-- Clone this repository.
-- Ensure you have a testing framework like pytest installed.
-- Run the following command in your terminal:
-   ```bash
-   pytest tests/
-   ```
-
-## Additional Information:
-If you have any questions regarding this pull request, please reach out.
+## Future Work:
+Additional tests could be added to handle floating-point arithmetic and performance testing with large numbers.
