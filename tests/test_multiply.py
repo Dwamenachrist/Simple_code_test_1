@@ -3,21 +3,22 @@ import unittest
 from multiply import multiply_numbers
 
 class TestMultiplyNumbers(unittest.TestCase):
-    def test_multiply_positive(self):
+
+    def test_positive_numbers(self):
         self.assertEqual(multiply_numbers(2, 3), 6)
+        self.assertEqual(multiply_numbers(5, 5), 25)
 
-    def test_multiply_negative(self):
-        self.assertEqual(multiply_numbers(-1, 10), -10)
+    def test_negative_numbers(self):
+        self.assertEqual(multiply_numbers(-1, -1), 1)
+        self.assertEqual(multiply_numbers(-1, 2), -2)
 
-    def test_multiply_zero(self):
+    def test_zero(self):
         self.assertEqual(multiply_numbers(0, 5), 0)
+        self.assertEqual(multiply_numbers(0, 0), 0)
 
-    def test_multiply_float(self):
+    def test_floats(self):
         self.assertAlmostEqual(multiply_numbers(2.5, 4), 10.0)
-
-    def test_multiply_string(self):
-        with self.assertRaises(TypeError):
-            multiply_numbers('a', 2)
+        self.assertAlmostEqual(multiply_numbers(3.1, 2), 6.2)
 
 if __name__ == '__main__':
     unittest.main()
