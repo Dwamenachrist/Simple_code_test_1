@@ -9,4 +9,14 @@ This pull request introduces a new test file `test_multiply.py`, which contains 
 - Multiplying by zero
 - Multiplying floating-point numbers
 
-These tests aim to ensure the correctness and reliability of the `multiply_numbers` function.
+These tests aim to ensure the correctness and reliability of the `multiply_numbers` function. After running this test suite, developers can confidently make changes knowing that they will not break existing functionality. 
+
+## Changes Made:
+1. Created a new test file named `test_multiply.py`.
+2. Added unit tests for different multiplication scenarios.
+
+## Testing Instructions:
+To run the tests, use the command:
+```bash
+python -m unittest test_multiply.py
+```
