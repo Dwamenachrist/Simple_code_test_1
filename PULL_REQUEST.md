@@ -1,22 +1,11 @@
-# Pull Request to Add Unit Tests for multiply_numbers
+# Pull Request to Merge Test Updates for Multiplication Function
 
 ## Description
-This pull request introduces a new test file `test_multiply.py`, which contains comprehensive unit tests for the `multiply_numbers` function. The tests cover various scenarios, including:
+This pull request is to merge the `test-multiply-numbers` branch into the `main` branch. The changes made in this branch include updates to the test files for the `multiply_numbers` function, ensuring that the function is thoroughly tested with various input cases.
 
-- Multiplying positive numbers
-- Multiplying negative numbers
-- Multiplying a positive and a negative number
-- Multiplying by zero
-- Multiplying floating-point numbers
+## Changes Made
+- Added new test cases in `test_multiply.py` to validate the correctness of the `multiply_numbers` function.
+- Updated existing tests to reflect any recent changes in the function implementation.
 
-These tests aim to ensure the correctness and reliability of the `multiply_numbers` function. After running this test suite, developers can confidently make changes knowing that they will not break existing functionality. 
-
-## Changes Made:
-1. Created a new test file named `test_multiply.py`.
-2. Added unit tests for different multiplication scenarios.
-
-## Testing Instructions:
-To run the tests, use the command:
-```bash
-python -m unittest test_multiply.py
-```
+## Purpose
+The intention behind these changes is to enhance the test coverage, ensuring robustness in future developments and maintenance of the multiplication functionality.
