@@ -15,7 +15,6 @@ The tests are implemented using the `unittest` framework and include tests for d
 
 ## Setup
 To run the tests, ensure you have Python and the `unittest` framework installed. You can execute the tests using the following command:
-
 ```bash
 python -m unittest tests/test_multiply.py
 ```
