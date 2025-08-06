@@ -1,32 +1,23 @@
-import unittest
-from multiply import multiply_numbers
+import pytest
+from multiply import multiply
 
-class TestMultiplyNumbers(unittest.TestCase):
+def test_multiply_basic():
+    assert multiply(2, 3) == 6
+    assert multiply(-1, 1) == -1
+    assert multiply(0, 10) == 0
 
-    def test_multiply_positive_numbers(self):
-        """Test multiplying two positive numbers."""
-        self.assertEqual(multiply_numbers(3, 4), 12)
 
-    def test_multiply_negative_numbers(self):
-        """Test multiplying two negative numbers."""
-        self.assertEqual(multiply_numbers(-3, -4), 12)
+def test_multiply_performance():
+    import time
+    start_time = time.time()
+    result = multiply(1000000, 1000000)
+    end_time = time.time()
+    assert result == 1000000000000
+    assert end_time - start_time < 1  # Should take less than 1 second
 
-    def test_multiply_positive_negative(self):
-        """Test multiplying a positive and a negative number."""
-        self.assertEqual(multiply_numbers(3, -4), -12)
 
-    def test_multiply_with_zero(self):
-        """Test multiplying by zero."""
-        self.assertEqual(multiply_numbers(0, 5), 0)
-        self.assertEqual(multiply_numbers(5, 0), 0)
-
-    def test_multiply_floats(self):
-        """Test multiplying two float numbers."""
-        self.assertAlmostEqual(multiply_numbers(2.5, 3.2), 8.0)
-
-    def test_multiply_large_numbers(self):
-        """Test multiplying large numbers."""
-        self.assertEqual(multiply_numbers(100000, 200), 20000000)
-
-if __name__ == '__main__':
-    unittest.main()
+def test_multiply_edge_cases():
+    assert multiply(1, 0) == 0
+    assert multiply(0, 0) == 0
+    assert multiply(1.5, 2) == 3.0
+    assert multiply(-1, -1) == 1
